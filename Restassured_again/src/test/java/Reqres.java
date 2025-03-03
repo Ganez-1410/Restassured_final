@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import constants.DomainURLs;
 import constants.Endpoints;
 import io.restassured.response.Response;
+import io.restassured.specification.ResponseSpecification;
 import models.groq.ChatCompletionResponse;
 import models.groq.ChatCompletions;
 import models.reqres.Users;
@@ -13,11 +14,20 @@ import services.APIServices;
 import utils.RetryAnalyzer;
 import utils.RetryListener;
 import utils.Utils;
+
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 
 @Listeners(RetryListener.class)
 public class Reqres {
@@ -25,17 +35,24 @@ public class Reqres {
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void createUser() throws IOException {
         String request_url = DomainURLs.REQRES + Endpoints.USER;
+
         Utils utils = new Utils();
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Users> users = utils.readCsv("/Users/ganesan/Documents/Restassured_again/src/main/resources/UserDetails.csv");
+        List<Users> users = utils.readCsv("src/main/resources/UserDetails.csv");
 
         for(Users user : users) {
 
             String payload = objectMapper.writeValueAsString(user);
             Response response = APIServices.post(request_url, payload);
 
+            Files.write(Paths.get("output.json"),response.asString().getBytes(), StandardOpenOption.APPEND);
+
+            response.then().assertThat().body(matchesJsonSchema(new File("src/main/java/schema/UserSchema.json"))).log().all();
+
             UsersResponse usersResponse = objectMapper.readValue(response.asString(), UsersResponse.class);
             System.out.println(usersResponse.getCreatedAt());
+
+
         }
     }
 
