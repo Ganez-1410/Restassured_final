@@ -1,0 +1,24 @@
+package Base;
+
+import constants.DomainURLs;
+import io.restassured.RestAssured;
+import org.testng.annotations.BeforeMethod;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class BaseClass {
+
+    static Properties properties;
+
+    @BeforeMethod(alwaysRun = true)
+    public void setBaseURI() throws IOException {
+
+        properties = new Properties();
+        properties.load(new FileInputStream("src/main/resources/apps.properties"));
+        RestAssured.baseURI = properties.getProperty("BLOCK_STREAM_REQUEST_URL");
+        RestAssured.useRelaxedHTTPSValidation();
+    }
+}
