@@ -60,6 +60,8 @@ public class Testcases {
 
             Response res = APIServices.get(get_txid_endpoint);
             ObjectMapper objectMapper = new ObjectMapper();
+
+//            List<Transactions> transactions = res.jsonPath().getList("",Transactions.class);
             List<Transactions> transactions = objectMapper.readValue(res.asString(), new TypeReference<List<Transactions>>() {});
 
             for (Transactions transactions1 : transactions) {
