@@ -2,12 +2,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import constants.DomainURLs;
 import constants.Endpoints;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.ResponseSpecification;
 import models.groq.ChatCompletionResponse;
 import models.groq.ChatCompletions;
 import models.reqres.Users;
 import models.reqres.UsersResponse;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import services.APIServices;
@@ -33,7 +35,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 public class Reqres {
 
     @Test(retryAnalyzer = RetryAnalyzer.class)
-    public void createUser() throws IOException {
+    public void createUser_with_objectMapper() throws IOException {
         String request_url = DomainURLs.REQRES + Endpoints.USER;
 
         Utils utils = new Utils();
@@ -51,7 +53,26 @@ public class Reqres {
 
             UsersResponse usersResponse = objectMapper.readValue(response.asString(), UsersResponse.class);
             System.out.println(usersResponse.getCreatedAt());
+        }
+    }
 
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void createUser_without_objectMapper() throws IOException {
+
+        String request_url = DomainURLs.REQRES + Endpoints.USER;
+
+        Utils utils = new Utils();
+        List<Users> users = utils.readCsv("src/main/resources/UserDetails.csv");
+
+        for(Users user : users) {
+
+            Response response = APIServices.makeRequest(Method.POST, request_url, null, null, user);
+            Files.write(Paths.get("output.json"), response.asString().getBytes(), StandardOpenOption.APPEND);
+            response.then().assertThat().body(matchesJsonSchema(new File("src/main/java/schema/UserSchema.json"))).log().all();
+            UsersResponse usersResponse = response.as(UsersResponse.class);
+
+            Assert.assertEquals(usersResponse.getName(), user.getName(), "Name didn't match");
+            Assert.assertEquals(usersResponse.getJob(), user.getJob(), "Job didn't match");
 
         }
     }
@@ -78,7 +99,5 @@ public class Reqres {
         ChatCompletionResponse chatCompletionResponse = objectMapper.readValue(response.asString(), ChatCompletionResponse.class);
 
         System.out.println(chatCompletionResponse.getChoices().get(0).getMessage());
-
-
     }
 }
