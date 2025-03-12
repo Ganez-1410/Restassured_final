@@ -1,6 +1,7 @@
 package services;
 
 import io.restassured.RestAssured;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import utils.Utils;
@@ -206,6 +207,48 @@ public class APIServices {
         catch (Exception e){
             e.printStackTrace();
         }
+        return response;
+    }
+
+    public static <T> Response makeRequest(Method method,
+                                           String endpoint,
+                                           Map<String, String> params,
+                                           Map<String, String> headers,
+                                           T payload){
+
+        Response response = null;
+        try {
+            RequestSpecification requestSpecification = (headers != null) ? APIHeader.setHeaders(headers) : APIHeader.setHeaders();
+
+            if(params != null)
+                requestSpecification.params(params);
+
+            if(payload != null && (method == Method.POST || method == Method.PUT))
+                requestSpecification.body(payload);
+
+            requestSpecification.log().all();
+            switch (method){
+                case GET:
+                    response = requestSpecification.get(endpoint);
+                    break;
+                case POST:
+                    response = requestSpecification.post(endpoint);
+                    break;
+                case PUT:
+                    response = requestSpecification.put(endpoint);
+                    break;
+                case DELETE:
+                    response = requestSpecification.delete(endpoint);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unsupported HTTP method: " + method);
+            }
+            response.then().log().all();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
         return response;
     }
 }

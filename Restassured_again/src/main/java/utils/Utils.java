@@ -27,7 +27,7 @@ public class Utils {
     static {
         try{
             properties = new Properties();
-            FileInputStream fileInputStream = new FileInputStream("/Users/ganesan/Documents/Restassured_again/src/main/resources/app.properties");
+            FileInputStream fileInputStream = new FileInputStream("src/main/resources/app.properties");
             properties.load(fileInputStream);
 
         } catch (Exception e) {
