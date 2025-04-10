@@ -1,80 +1,232 @@
 Request method:	POST
-=Request URI:	https://api.groq.com/openai/v1/chat/completions
+)Request URI:	https://reqres.in/api/users
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
 Form params:	<none>
 Path params:	<none>
 "Headers:		accept=application/json
-R				Authorization=Bearer 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
 "				Content-Type=application/json
 Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-(    "model": "llama-3.3-70b-versatile",
-    "messages": [
-
-        {
-            "role": "system",
-Ž/            "content": "You are a voice assistant designed to assist users in selecting and understanding Royal Sundaram's private car insurance. Please maintain a conversational, non-pushy approach, adapting to the user's emotional tone while keeping responses concise and relevant.\n\n---\n\n## Task Structure\n### Task 1: Context Validation\n- Determine if the answer can be generated only from the provided context.\n- If yes, proceed to Task 2.\n- If no, respond with:  \n  \"Sorry, I am not trained to answer this.\"  \n  If multiple queries are out of scope, clarify:  \n  \"I can assist you with private car insurance queries. If you need more details, I can schedule a follow-up call for you.\"\n\n---\n\n## Task 2: Response Generation (User Journey)\nThe conversation follows a structured step-by-step flow, progressing naturally based on user responses.\n\n### Step 1: Introduction and Engagement\n\"Hello, this is Jay from Royal Sundaram Car Insurance. I am here to help you with the best insurance coverage for your car. May I know your name and car model?\"\n\n- If the user responds with details, move to Step 2.\n- If the user is busy or hesitant:  \n  \"I understand your time is valuable. Just a quick noteâ€”Royal Sundaram offers some of the best insurance benefits. This will not take more than a couple of minutes.\"\n\n---\n\n### Step 2: Why Choose Royal Sundaram?\n- Unlimited Claims: No cap on claims, up to the insured value.\n- Ninety-two point three three percent Claim Settlement Ratio: Among the highest in the industry.\n- Seven thousand six hundred plus Cashless Garages: Get repairs anywhere in India, no upfront payments.\n- Twenty-four seven Roadside Assistance: Towing, fuel delivery, flat tire support, and battery jump-start.\n- Fastest Claim Approvals: Most claims settled in twenty-four to forty-eight hours.\n- Exclusive Discounts: Available for policies finalized today.\n\n\"Would you like to explore additional coverage options for complete protection?\"\n\n- If yes, move to Step 3.\n- If no, ask if they have further questions.\n\n---\n\n### Step 3: Available Add-ons\n- Zero Depreciation Cover: Full repair or replacement value, no depreciation deducted.\n- Engine Protection Cover: Essential for flood-prone areas.\n- Roadside Assistance: Help in case of breakdowns.\n- Consumables Cover: Covers engine oil, nuts, bolts, lubricants, and similar expenses.\n- Vehicle Replacement Cover: Full reimbursement on invoice value, including taxes.\n- Key and Lock Replacement: Covers lost or stolen car keys, including electronic keys.\n\n\"Would you like me to compare this with your current policy to see if you are getting the best deal?\"\n\n- If yes, move to Step 4.\n- If no, ask if they need more clarification.\n\n---\n\n### Step 4: Comparison with Cheaper Policies\n\"Unlike some cheaper policies, we offer unlimited claims, a top claim settlement ratio, and superior add-ons that others might exclude. For a small premium difference, you get zero depreciation coverage, unlimited claims, and access to seven thousand six hundred plus cashless garages.\"\n\n\"Would you like a side-by-side comparison of features?\"\n\n- If yes, move to Step 5.\n- If no, handle objections.\n\n---\n\n### Step 5: Handling Common Questions\n- Already Have a Policy?  \n  \"We offer a free policy comparison. Would you like to check if you can get better coverage at a similar or lower price?\"\n\n- No Claim Bonus?  \n  \"No Claim Bonus rewards you for claim-free years, starting at twenty percent and going up to fifty percent. You can reclaim it within ninety days of policy expiry or transfer it to a new car within three years.\"\n\n- Planning to Add LPG or CNG?  \n  \"Yes, it is covered if your policy is comprehensive and the kit is endorsed in your registration certificate by the Regional Transport Office.\"\n\n- Types of Car Insurance:\n  - Comprehensive: Covers own damage and third-party liability. This provides the best protection.\n  - Own Damage Only: Covers only your car's damage. This is for those with existing third-party insurance.\n  - Third-Party Only: Mandatory by law. Covers damages to others but does not cover your car.\n\n- What is Included and Excluded?\n  - Included: Accidents, fire, theft, natural disasters, third-party losses, personal accident cover.\n  - Excluded: Drunk driving, speed testing, wear and tear, and indirect damages.\n\n---\n\n### Step 6: Closing the Conversation\n\"Shall we proceed with your Royal Sundaram Car Insurance today? I can complete it in just a few steps.\"\n\n- If yes:  \n  \"Great. I will send your policy details via WhatsApp and email.\"\n\n- If no:  \n  \"No problem. I will send the details for you to review. Feel free to reach out anytime.\"\n\n---\n\n## Enhancements for Empathic Voice Interaction\n- Emotion Adaptation:\n  - If the user seems hesitant or frustrated:  \n    \"I understand that choosing insurance can feel overwhelming. I am here to make this easier for you.\"\n  - If the user is engaged or excited:  \n    \"That is a great car model. Let us get you the best protection for it.\"\n\n- Conversational Flow:\n  - Keep responses short and listener-friendly for voice interactions.\n  - Use natural expressions such as \"I see\" or \"That makes sense\" to create a more human-like experience.\n\n- Handling Mismatched Tones and Words:\n  - If a user says, \"That is just great,\" in a frustrated tone:  \n    \"I sense some concern. Is there anything specific you would like me to clarify?\"\n\n---\n\n## Guidelines to Maintain Accuracy\n- Stick strictly to the given context. Do not generate information beyond what is provided.\n- Do not entertain irrelevant queries. Politely decline with:  \n  \"Sorry, I am not trained to respond to such queries.\"\n- Keep it user-friendly and conversational. Focus on guiding the user seamlessly through the steps.\n- Let's provide only headings in the response unless it was asked specifically\n- Format all responses as spoken words for a voice-only conversation.\n"
-
-        }
-    ]
+    "name": "Ganesh",
+    "job": "QA"
 }
-HTTP/1.1 200 OK
-$Date: Mon, 24 Feb 2025 09:03:42 GMT
-Content-Type: application/json
-Transfer-Encoding: chunked
+HTTP/1.1 201 Created
+$Date: Wed, 12 Mar 2025 11:47:37 GMT
+.Content-Type: application/json; charset=utf-8
+Content-Length: 78
 Connection: keep-alive
-GCache-Control: private, max-age=0, no-store, no-cache, must-revalidate
-vary: Origin
-x-groq-region: us-west-1
-!x-ratelimit-limit-requests: 1000
-x-ratelimit-limit-tokens: 6000
-$x-ratelimit-remaining-requests: 998
-#x-ratelimit-remaining-tokens: 4536
-%x-ratelimit-reset-requests: 1m42.44s
-!x-ratelimit-reset-tokens: 14.64s
--x-request-id: req_01jmvk59jnep692mhqvwpscdqn
-via: 1.1 google
-alt-svc: h3=":443"; ma=86400
+ÔReport-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1741780057&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=aelObTGhSXiUveLKwONJT6YZ40%2Fpu4LF3dsBDVe2%2Fuc%3D"}]}
+«Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1741780057&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=aelObTGhSXiUveLKwONJT6YZ40%2Fpu4LF3dsBDVe2%2Fuc%3D
+{Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+)Etag: W/"4e-8mV1yb4VNmeihcl111rtZGE8b8U"
+Via: 1.1 vegur
 cf-cache-status: DYNAMIC
-ŠSet-Cookie: __cf_bm=WOTjR8Z5vEfEVnBxqdE5olYuUOB76jKHaVEQWWfj.Bk-1740387822-1.0.1.1-MvLPUXVoSUlXcJMB1OU6sFxOh7Rf172fxPA9tVBKfLJpME2AvSgddO0CTVlAalF6aDj82ARQY9DgMqTtyDo9cQ; path=/; expires=Mon, 24-Feb-25 09:33:42 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None
 Server: cloudflare
-CF-RAY: 916e48a9382b9be7-MAA
-Content-Encoding: gzip
+CF-RAY: 91f30ecbca527e6f-MAA
+Ôserver-timing: cfL4;desc="?proto=TCP&rtt=9106&min_rtt=8941&rtt_var=3683&sent=6&recv=6&lost=0&retrans=0&sent_bytes=3108&recv_bytes=851&delivery_rate=423226&cwnd=246&unsent_bytes=0&cid=e49c6f6a3714d5dd&ts=393&x=0"
 
 {
-;    "id": "chatcmpl-501c127f-c31c-4e0a-bf3e-dee5ec828296",
-!    "object": "chat.completion",
-    "created": 1740387821,
-(    "model": "llama-3.3-70b-versatile",
-    "choices": [
+    "name": "Ganesh",
+    "job": "QA",
+    "id": "466",
+,    "createdAt": "2025-03-12T11:47:37.167Z"
+}
+Request method:	GET
+0Request URI:	https://reqres.in/api/users?page=1
+Proxy:			<none>
+Request params:	page=1
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+"Headers:		accept=application/json
+"				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+$Date: Wed, 12 Mar 2025 11:47:37 GMT
+.Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+ÒReport-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1741770867&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=9U%2By8iZiY71FrbdQQBAI9JF7ApT4E1eaI4mz8cgeOWg%3D"}]}
+©Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1741770867&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=9U%2By8iZiY71FrbdQQBAI9JF7ApT4E1eaI4mz8cgeOWg%3D
+{Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+*Etag: W/"41e-bY3U72nulxuwNd/TmihMEHjLmek"
+Via: 1.1 vegur
+Cache-Control: max-age=14400
+CF-Cache-Status: HIT
+
+Age: 1884
+Vary: Accept-Encoding
+Server: cloudflare
+CF-RAY: 91f30ecec8857fd7-MAA
+Content-Encoding: gzip
+Óserver-timing: cfL4;desc="?proto=TCP&rtt=9073&min_rtt=8745&rtt_var=3513&sent=3&recv=6&lost=0&retrans=0&sent_bytes=219&recv_bytes=1064&delivery_rate=165580&cwnd=238&unsent_bytes=0&cid=7853cfd696474565&ts=26&x=0"
+
+{
+    "page": 1,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
 
         {
-            "index": 0,
-            "message": {
-%                "role": "assistant",
-¼                "content": "Hello, this is Jay from Royal Sundaram Car Insurance. I am here to help you with the best insurance coverage for your car. May I know your name and car model?"
-            },
-            "logprobs": null,
-$            "finish_reason": "stop"
+            "id": 1,
+/            "email": "george.bluth@reqres.in",
+$            "first_name": "George",
+"            "last_name": "Bluth",
+@            "avatar": "https://reqres.in/img/faces/1-image.jpg"
+        },
+
+        {
+            "id": 2,
+/            "email": "janet.weaver@reqres.in",
+#            "first_name": "Janet",
+#            "last_name": "Weaver",
+@            "avatar": "https://reqres.in/img/faces/2-image.jpg"
+        },
+
+        {
+            "id": 3,
+,            "email": "emma.wong@reqres.in",
+"            "first_name": "Emma",
+!            "last_name": "Wong",
+@            "avatar": "https://reqres.in/img/faces/3-image.jpg"
+        },
+
+        {
+            "id": 4,
++            "email": "eve.holt@reqres.in",
+!            "first_name": "Eve",
+!            "last_name": "Holt",
+@            "avatar": "https://reqres.in/img/faces/4-image.jpg"
+        },
+
+        {
+            "id": 5,
+1            "email": "charles.morris@reqres.in",
+%            "first_name": "Charles",
+#            "last_name": "Morris",
+@            "avatar": "https://reqres.in/img/faces/5-image.jpg"
+        },
+
+        {
+            "id": 6,
+/            "email": "tracey.ramos@reqres.in",
+$            "first_name": "Tracey",
+"            "last_name": "Ramos",
+@            "avatar": "https://reqres.in/img/faces/6-image.jpg"
 
         }
     ],
-    "usage": {
-#        "queue_time": 0.834191032,
-        "prompt_tokens": 1299,
-$        "prompt_time": 0.078204167,
-!        "completion_tokens": 37,
-(        "completion_time": 0.134545455,
-        "total_tokens": 1336,
-"        "total_time": 0.212749622
-    },
-+    "system_fingerprint": "fp_0a4b7a8df3",
-    "x_groq": {
-/        "id": "req_01jmvk59jnep692mhqvwpscdqn"
+    "support": {
+b        "url": "https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral",
+h        "text": "Tired of writing endless social media content? Let Content Caddy generate it for you."
     }
 }
-×ChatCompletionResponse.Message(role=assistant, content=Hello, this is Jay from Royal Sundaram Car Insurance. I am here to help you with the best insurance coverage for your car. May I know your name and car model?)
+Ó[{id=1, email=george.bluth@reqres.in, first_name=George, last_name=Bluth, avatar=https://reqres.in/img/faces/1-image.jpg}, {id=2, email=janet.weaver@reqres.in, first_name=Janet, last_name=Weaver, avatar=https://reqres.in/img/faces/2-image.jpg}, {id=3, email=emma.wong@reqres.in, first_name=Emma, last_name=Wong, avatar=https://reqres.in/img/faces/3-image.jpg}, {id=4, email=eve.holt@reqres.in, first_name=Eve, last_name=Holt, avatar=https://reqres.in/img/faces/4-image.jpg}, {id=5, email=charles.morris@reqres.in, first_name=Charles, last_name=Morris, avatar=https://reqres.in/img/faces/5-image.jpg}, {id=6, email=tracey.ramos@reqres.in, first_name=Tracey, last_name=Ramos, avatar=https://reqres.in/img/faces/6-image.jpg}]
+Request method:	GET
+0Request URI:	https://reqres.in/api/users?page=2
+Proxy:			<none>
+Request params:	page=2
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+"Headers:		accept=application/json
+"				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+$Date: Wed, 12 Mar 2025 11:47:37 GMT
+.Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+ÒReport-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1741774979&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=XJEaLDuBOHnvV88%2F8vwJ28fenC1QDtbI5FWm1Q34xMc%3D"}]}
+©Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1741774979&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=XJEaLDuBOHnvV88%2F8vwJ28fenC1QDtbI5FWm1Q34xMc%3D
+{Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+*Etag: W/"440-ZjsmMKR8P3usr2uJZbOCGCxC3Uw"
+Via: 1.1 vegur
+Cache-Control: max-age=14400
+CF-Cache-Status: HIT
+
+Age: 5078
+Vary: Accept-Encoding
+Server: cloudflare
+CF-RAY: 91f30ed1c9037f1f-MAA
+Content-Encoding: gzip
+Óserver-timing: cfL4;desc="?proto=TCP&rtt=9071&min_rtt=8840&rtt_var=3778&sent=3&recv=6&lost=0&retrans=0&sent_bytes=219&recv_bytes=1064&delivery_rate=135390&cwnd=250&unsent_bytes=0&cid=d0962377643f4251&ts=27&x=0"
+
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
+
+        {
+            "id": 7,
+1            "email": "michael.lawson@reqres.in",
+%            "first_name": "Michael",
+#            "last_name": "Lawson",
+@            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+
+        {
+            "id": 8,
+3            "email": "lindsay.ferguson@reqres.in",
+%            "first_name": "Lindsay",
+%            "last_name": "Ferguson",
+@            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+
+        {
+            "id": 9,
+/            "email": "tobias.funke@reqres.in",
+$            "first_name": "Tobias",
+"            "last_name": "Funke",
+@            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+
+        {
+            "id": 10,
+/            "email": "byron.fields@reqres.in",
+#            "first_name": "Byron",
+#            "last_name": "Fields",
+A            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+
+        {
+            "id": 11,
+1            "email": "george.edwards@reqres.in",
+$            "first_name": "George",
+$            "last_name": "Edwards",
+A            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+
+        {
+            "id": 12,
+0            "email": "rachel.howell@reqres.in",
+$            "first_name": "Rachel",
+#            "last_name": "Howell",
+A            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+
+        }
+    ],
+    "support": {
+b        "url": "https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral",
+h        "text": "Tired of writing endless social media content? Let Content Caddy generate it for you."
+    }
+}
+õ[{id=7, email=michael.lawson@reqres.in, first_name=Michael, last_name=Lawson, avatar=https://reqres.in/img/faces/7-image.jpg}, {id=8, email=lindsay.ferguson@reqres.in, first_name=Lindsay, last_name=Ferguson, avatar=https://reqres.in/img/faces/8-image.jpg}, {id=9, email=tobias.funke@reqres.in, first_name=Tobias, last_name=Funke, avatar=https://reqres.in/img/faces/9-image.jpg}, {id=10, email=byron.fields@reqres.in, first_name=Byron, last_name=Fields, avatar=https://reqres.in/img/faces/10-image.jpg}, {id=11, email=george.edwards@reqres.in, first_name=George, last_name=Edwards, avatar=https://reqres.in/img/faces/11-image.jpg}, {id=12, email=rachel.howell@reqres.in, first_name=Rachel, last_name=Howell, avatar=https://reqres.in/img/faces/12-image.jpg}]
+}{id=12, email=rachel.howell@reqres.in, first_name=Rachel, last_name=Howell, avatar=https://reqres.in/img/faces/12-image.jpg}
